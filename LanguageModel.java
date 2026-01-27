@@ -100,8 +100,10 @@ public class LanguageModel {
         }
         StringBuilder generatedText = new StringBuilder(initialText);
         String window = initialText.substring(initialText.length() - windowLength);
+        int targetLength = initialText.length() + textLength;
 
-        while (generatedText.length() < textLength) { 
+
+        while (generatedText.length() < targetLength) { 
             List probs = CharDataMap.get(window);
             
             if (probs == null) { 
