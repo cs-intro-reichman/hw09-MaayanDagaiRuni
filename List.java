@@ -24,6 +24,9 @@ public class List {
 
     /** Returns the CharData of the first element in this list. */
     public CharData getFirst() {
+        if (first == null) {
+            return null;
+        }
         return first.cp;
     }
 
@@ -113,7 +116,7 @@ public class List {
      *  If the index is negative or is greater than the size of this list, 
      *  throws an IndexOutOfBoundsException. */
     public CharData get(int index) {
-        if(index<0 || index>size){
+        if(index<0 || index>=size){
             throw new IndexOutOfBoundsException();
         }
 	    Node current = first;
