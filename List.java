@@ -24,19 +24,32 @@ public class List {
 
     /** Returns the CharData of the first element in this list. */
     public CharData getFirst() {
-        // Your code goes here
         return first.cp;
     }
 
     /** GIVE Adds a CharData object with the given character to the beginning of this list. */
     public void addFirst(char chr) {
-        // Your code goes here
+        CharData cd = new CharData(chr);
+        Node newNode = new Node(cd, first);
+        first = newNode;
+        size++;
     }
     
     /** GIVE Textual representation of this list. */
     public String toString() {
-        // Your code goes here
-        return "";
+        if (size == 0) return "()";
+        
+        StringBuilder sb = new StringBuilder("(");
+        Node current = first;
+        while (current != null) {
+            sb.append(current.cp.toString());
+            current = current.next;
+            if (current != null) {
+                sb.append(" "); 
+            }
+        }
+        sb.append(")");
+        return sb.toString();
     }
 
     /** Returns the index of the first CharData object in this list
