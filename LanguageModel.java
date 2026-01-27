@@ -67,11 +67,12 @@ public class LanguageModel {
             cd.p = (double) cd.count / totalCount;
             cpCurrent += cd.p;
             cd.cp = cpCurrent;  
-        }	
-        if (probs.getSize() > 0) {
-        probs.get(probs.getSize() - 1).cp = 1.0;
-        }	
-	}
+        	
+            if (i == probs.getSize() - 1) {
+                cd.cp = 1.0;
+            }
+        }       
+    }
 
     // Returns a random character from the given probabilities list.
 	char getRandomChar(List probs) {
